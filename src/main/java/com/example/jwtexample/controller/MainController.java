@@ -35,4 +35,8 @@ public class MainController {
         }
         return jwtUtil.generateToken(authInput.getUsername());
     }
+
+
+
+
 }
