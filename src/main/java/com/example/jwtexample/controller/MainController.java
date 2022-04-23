@@ -20,7 +20,7 @@ public class MainController {
 
     @GetMapping("/")
     public String welcome(){
-        return  "welcome";
+        return  "welcome to jwt";
 
     }
 
