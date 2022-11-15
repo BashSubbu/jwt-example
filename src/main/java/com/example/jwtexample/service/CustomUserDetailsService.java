@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Base64;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -19,6 +20,8 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
-        return new org.springframework.security.core.userdetails.User(user.getUsername(),user.getPassword(),new ArrayList<>());
+        byte[] decodedBytes = Base64.getDecoder().decode(user.getPassword());
+        String decodedString = new String(decodedBytes);
+        return new org.springframework.security.core.userdetails.User(user.getUsername(),decodedString,new ArrayList<>());
     }
 }

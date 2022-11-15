@@ -20,7 +20,7 @@ public class JwtExampleApplication {
 	@PostConstruct
 	public void initUsers(){
 		List<User> users = Stream.of(
-				new User(1,"siva","password","testemail@gmail.com"),
+				new User(1,"siva","cGFzc3dvcmQ=","testemail@gmail.com"),
 		        new User(2,"subbu","password","testemail@1gmail.com")
 
 		).collect(Collectors.toList());

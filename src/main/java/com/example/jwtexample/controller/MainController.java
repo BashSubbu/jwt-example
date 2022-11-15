@@ -31,7 +31,7 @@ public class MainController {
                     new UsernamePasswordAuthenticationToken(authInput.getUsername(), authInput.getPassword())
             );
         } catch (Exception ex) {
-            throw new Exception("inavalid username/password");
+            throw new Exception("invalid username/password");
         }
         return jwtUtil.generateToken(authInput.getUsername());
     }
